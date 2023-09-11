@@ -138,7 +138,7 @@ opensearchAccount:
 
 labels: {}
 
-hostAliases: []
+hostAliases: # bilo []
  - ip: "127.0.0.1"
    hostnames:
    - "foo.local"
@@ -161,7 +161,7 @@ service:
   nodePort: ""
   labels: {}
   annotations: {}
-  loadBalancerSourceRanges: []
+  loadBalancerSourceRanges: # bilo []
    0.0.0.0/0 # bilo zakomentarisano
   httpPortName: http
 
