@@ -139,15 +139,16 @@ opensearchAccount:
 labels: {}
 
 hostAliases: []
-# - ip: "127.0.0.1"
-#   hostnames:
-#   - "foo.local"
-#   - "bar.local"
+ - ip: "127.0.0.1"
+   hostnames:
+   - "foo.local"
+   - "bar.local"
+   - "chart-example.local"
 
 serverHost: "0.0.0.0"
 
 service:
-  type: ClusterIP
+  type: LoadBalancer # bilo ClusterIP
   # The IP family and IP families options are to set the behaviour in a dual-stack environment
   # Omitting these values will let the service fall back to whatever the CNI dictates the defaults
   # should be
@@ -161,25 +162,25 @@ service:
   labels: {}
   annotations: {}
   loadBalancerSourceRanges: []
-  # 0.0.0.0/0
+   0.0.0.0/0 # bilo zakomentarisano
   httpPortName: http
 
-ingress:
-  enabled: false
+ingress:  
+  enabled: true # bilo false
   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+     kubernetes.io/ingress.class: nginx # bilo zakomentarisano
+     kubernetes.io/tls-acme: "true" # bilo zakomentarisano
   labels: {}
   hosts:
     - host: chart-example.local
       paths:
         - path: /
           backend:
-            serviceName: ""
-            servicePort: ""
+            serviceName: "opensearch-dashboard-opensearch-dashboards" #bilo prazno
+            servicePort: "5601" # bilo prazno
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
