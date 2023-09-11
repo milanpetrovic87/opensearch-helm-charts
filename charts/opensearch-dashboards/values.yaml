@@ -179,8 +179,10 @@ ingress:
       paths:
         - path: /
           backend:
-            serviceName: "opensearch-dashboard-opensearch-dashboards" #bilo prazno
-            servicePort: "5601" # bilo prazno
+            service:
+              name: opensearch-dashboard-opensearch-dashboards #bilo prazno
+              port:
+                number: 5601 # bilo prazno
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
