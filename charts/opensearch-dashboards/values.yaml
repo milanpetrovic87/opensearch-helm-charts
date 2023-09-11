@@ -161,8 +161,8 @@ service:
   nodePort: ""
   labels: {}
   annotations: {}
-  loadBalancerSourceRanges: # bilo []
-   0.0.0.0/0 # bilo zakomentarisano
+  #loadBalancerSourceRanges: # bilo []
+  # 0.0.0.0/0 # bilo zakomentarisano
   httpPortName: http
 
 ingress:  
